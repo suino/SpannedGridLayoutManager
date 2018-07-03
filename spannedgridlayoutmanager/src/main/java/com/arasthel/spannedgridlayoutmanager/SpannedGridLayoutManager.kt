@@ -108,6 +108,8 @@ open class SpannedGridLayoutManager(val orientation: Orientation,
      */
     var itemOrderIsStable = false
 
+    var customHeightRatio: Float = 1.0
+
     //==============================================================================================
     //  ~ Initializer
     //==============================================================================================
@@ -203,7 +205,7 @@ open class SpannedGridLayoutManager(val orientation: Orientation,
         val freeRectsHelper = this.rectsHelper
 
         val itemWidth = freeRectsHelper.itemSize
-        val itemHeight = freeRectsHelper.itemSize
+        val itemHeight = freeRectsHelper.itemSize * customHeightRatio
 
         if (view.layoutParams !is SpanLayoutParams) {
             throw TypeCastException("View LayoutParams must be of type 'SpanLayoutParams'")
